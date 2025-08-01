@@ -81,10 +81,18 @@ class CatalogAdsView(APIView):
     # filter
     def post(self,request:Request,catalog:str):
         # max цена
-        max = request.data['max']  
+        max = request.data.get("max",10000000)  
         # min цена
-        min = request.data['min']
+        min = request.data.get("min",0)
+        # rating
+        sort_by_rating = request.data.get("rating",True)
+        
         catalog_ads = Ads.objects.filter(catalog=catalog)
         ads = catalog_ads.filter(price__range=(min,max))
+        
+        if sort_by_rating:
+            ads = ads.order_by("-rating")
+            
+        
         serializer = AdsSerializer(ads,many=True)
         return Response(data=serializer.data)
