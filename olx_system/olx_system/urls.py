@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/',include('user.urls')),
     path('ads/',include('main.urls')),
-    path('rating/',include('rating.urls'))
+    path('rating/',include('rating.urls')),
+    path('admin_panel/',include('admin_panel.urls'))
 ]
 
 

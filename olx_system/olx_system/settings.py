@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'main',
     'user',
-    'rating.apps.RatingConfig'
+    'rating.apps.RatingConfig',
+    'admin_panel.apps.AdminPanelConfig'
     
 ]
 
