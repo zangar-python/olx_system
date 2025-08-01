@@ -19,6 +19,8 @@ class Ads(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to="images/",blank=False,null=False)
     catalog = models.CharField(max_length=30,choices=CATALOG_CHOICES)
+    rating = models.FloatField(default=0.0,null=True,blank=True)
+    
     def __str__(self):
         return f"{self.user.username} {self.header}"
     
