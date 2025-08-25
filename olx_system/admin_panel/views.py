@@ -13,3 +13,4 @@ class StoryViews(APIView):
         story = StoryOfSystem.objects.all()
         serializer = StoryOfSystemSerializer(story,many=True)
         return Response(serializer.data)
+
